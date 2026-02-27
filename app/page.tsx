@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 import { homepageReviews } from "@/lib/reviews";
 
@@ -106,14 +107,16 @@ export default function HomePage() {
               href={`/${p.slug}`}
               className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-sand-200"
             >
-              {/* Photo placeholder */}
-              <div
-                className={`aspect-[4/3] ${p.accentBg} relative overflow-hidden flex items-end`}
-              >
+              {/* Hero photo */}
+              <div className={`aspect-[4/3] ${p.accentBg} relative overflow-hidden`}>
+                <Image
+                  src={`/images/${p.slug}/hero.jpg`}
+                  alt={`${p.name} — ${p.location}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-ocean-950/30 to-transparent" />
-                <p className="relative z-10 text-white/50 text-[10px] px-4 pb-3">
-                  Add photos → /public/images/{p.slug}/
-                </p>
               </div>
 
               <div className="p-6">

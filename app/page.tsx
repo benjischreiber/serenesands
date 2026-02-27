@@ -44,22 +44,16 @@ export default function HomePage() {
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative bg-ocean-950 text-white overflow-hidden min-h-[82vh] flex items-center">
-        {/* Gradient backdrop — replace with a hero <Image> later */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(135deg, #061e38 0%, #0f4570 50%, #155a8a 100%)",
-          }}
+        {/* Hero photo */}
+        <Image
+          src="/images/hero.jpg"
+          alt="Serene seaside view"
+          fill
+          className="object-cover object-center"
+          priority
         />
-        {/* Subtle stripe texture */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px)",
-          }}
-        />
+        {/* Dark overlay so text stays legible */}
+        <div className="absolute inset-0 bg-ocean-950/60" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-32">
           <p className="text-sand-300 text-xs tracking-[0.25em] uppercase font-medium mb-5">

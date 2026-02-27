@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import BookingButtons from "@/components/BookingButtons";
+import BookingCalendar from "@/components/BookingCalendar";
 import PhotoGrid from "@/components/PhotoGrid";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 import { felixstoweReviews } from "@/lib/reviews";
+
+const CALENDAR_KEY =
+  "ADD4FA91A2F53198491534257B7B793007C0524B9A2CDD0947E7E8A0C5FA0C82EAFA9E1F30A0A500E9A6558C6CD2CFC02E1A9A3F2F445E5E";
 
 export const metadata: Metadata = {
   title: "Felixstowe — Serene Sands | Serene Holidays",
@@ -62,7 +66,7 @@ export default function FelixstowePage() {
               </span>
             </div>
 
-            <BookingButtons airbnbUrl="https://www.airbnb.co.uk/rooms/9095485" bookingUrl="https://www.booking.com/hotel/gb/serene-sands.en-gb.html" />
+            <BookingButtons airbnbUrl="https://www.airbnb.co.uk/rooms/9095485" bookingUrl="https://www.booking.com/hotel/gb/serene-sands.en-gb.html" directUrl="#book" />
           </div>
 
           {/* Hero photo */}
@@ -105,24 +109,27 @@ export default function FelixstowePage() {
         </div>
       </section>
 
-      {/* ── Book direct CTA ──────────────────────────────────── */}
-      <section id="book" className="bg-ocean-950 text-white">
+      {/* ── Booking calendar ─────────────────────────────────── */}
+      <section id="book" className="max-w-6xl mx-auto px-6 py-20">
+        <p className="text-ocean-500 text-xs tracking-[0.2em] uppercase font-medium mb-2">
+          Availability &amp; booking
+        </p>
+        <h2 className="font-serif text-3xl text-ocean-950 mb-10">
+          Book direct
+        </h2>
+        <BookingCalendar calendarKey={CALENDAR_KEY} propertyId="385019" />
+      </section>
+
+      {/* ── Book via platforms CTA ───────────────────────────── */}
+      <section className="bg-ocean-950 text-white">
         <div className="max-w-6xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
-            <h2 className="font-serif text-3xl mb-2">Book Serene Sands</h2>
+            <h2 className="font-serif text-3xl mb-2">Also available on</h2>
             <p className="text-white/60">
-              Call us directly for the best rate — no booking fees.
+              Or book via your preferred platform.
             </p>
           </div>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="tel:07830301317"
-              className="bg-sand-400 text-ocean-950 font-semibold px-8 py-4 rounded-full hover:bg-sand-300 transition-colors"
-            >
-              07830301317
-            </a>
-            <BookingButtons airbnbUrl="https://www.airbnb.co.uk/rooms/9095485" bookingUrl="https://www.booking.com/hotel/gb/serene-sands.en-gb.html" />
-          </div>
+          <BookingButtons airbnbUrl="https://www.airbnb.co.uk/rooms/9095485" bookingUrl="https://www.booking.com/hotel/gb/serene-sands.en-gb.html" hideDirect />
         </div>
       </section>
     </>

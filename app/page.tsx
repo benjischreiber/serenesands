@@ -76,10 +76,10 @@ export default function HomePage() {
               View our properties
             </a>
             <a
-              href="tel:07830301317"
+              href="mailto:info@serenesands.co.uk"
               className="border border-white/30 text-white px-7 py-3.5 rounded-full hover:border-white hover:bg-white/10 transition-colors text-sm"
             >
-              07830301317
+              Get in touch
             </a>
           </div>
         </div>
@@ -166,19 +166,30 @@ export default function HomePage() {
               Book direct &amp; save
             </h2>
             <p className="text-ocean-800/70 leading-relaxed max-w-xl">
-              Book directly with us and skip the platform fees. We&apos;re
-              also listed on Airbnb and Booking.com if you prefer — but for the
-              best rate, just give us a call.
+              Book directly with us and skip the platform fees. Use our online
+              availability calendar to check dates and book instantly — no
+              middleman, no extra charges.
             </p>
           </div>
-          <div className="text-center shrink-0">
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <a
-              href="tel:07830301317"
-              className="block bg-ocean-700 text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-ocean-600 transition-colors mb-2"
+              href="/felixstowe#book"
+              className="inline-flex items-center justify-center bg-ocean-700 text-white font-semibold px-7 py-3.5 rounded-full hover:bg-ocean-600 transition-colors text-sm"
             >
-              Call to book direct
+              Felixstowe
             </a>
-            <p className="text-ocean-600 text-sm">07830301317</p>
+            <a
+              href="/harwich#book"
+              className="inline-flex items-center justify-center bg-ocean-700 text-white font-semibold px-7 py-3.5 rounded-full hover:bg-ocean-600 transition-colors text-sm"
+            >
+              Harwich
+            </a>
+            <a
+              href="/brighton#book"
+              className="inline-flex items-center justify-center bg-ocean-700 text-white font-semibold px-7 py-3.5 rounded-full hover:bg-ocean-600 transition-colors text-sm"
+            >
+              Brighton
+            </a>
           </div>
         </div>
       </section>

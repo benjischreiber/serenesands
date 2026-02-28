@@ -13,10 +13,10 @@ export default function Footer() {
 
         <div className="text-center text-sm">
           <a
-            href="tel:07830301317"
+            href="mailto:info@serenesands.co.uk"
             className="hover:text-white transition-colors"
           >
-            07830301317
+            info@serenesands.co.uk
           </a>
         </div>
 

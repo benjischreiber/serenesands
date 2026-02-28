@@ -5,13 +5,11 @@ import { useEffect } from "react";
 interface Props {
   calendarKey: string;
   propertyId: string;
-  affiliate?: string;
 }
 
 export default function BookingCalendar({
   calendarKey,
   propertyId,
-  affiliate = "lovetoescape.com",
 }: Props) {
   useEffect(() => {
     // Only add the script once — check if it's already present
@@ -40,7 +38,6 @@ export default function BookingCalendar({
     <div
       data-calendar-key={calendarKey}
       data-calendar-property-id={propertyId}
-      data-calendar-affiliate={affiliate}
     />
   );
 }

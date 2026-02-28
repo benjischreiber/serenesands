@@ -68,19 +68,28 @@ export default function HomePage() {
             Three beautifully appointed holiday lets on England&apos;s coast —
             Brighton, Felixstowe &amp; Harwich.
           </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#properties"
-              className="bg-sand-400 text-ocean-950 font-semibold px-7 py-3.5 rounded-full hover:bg-sand-300 transition-colors text-sm"
-            >
-              View our properties
-            </a>
-            <a
-              href="mailto:info@serenesands.co.uk"
-              className="border border-white/30 text-white px-7 py-3.5 rounded-full hover:border-white hover:bg-white/10 transition-colors text-sm"
-            >
-              Get in touch
-            </a>
+          <div className="flex flex-wrap gap-3">
+            {properties.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/${p.slug}`}
+                className="group flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-4 py-3 hover:bg-white/20 transition-all"
+              >
+                <div className="w-14 h-14 rounded-xl overflow-hidden relative shrink-0">
+                  <Image
+                    src={`/images/${p.slug}/hero.jpg`}
+                    alt={p.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="56px"
+                  />
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-sm leading-tight">{p.name}</p>
+                  <p className="text-white/60 text-xs mt-0.5">{p.location}</p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

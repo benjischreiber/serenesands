@@ -131,7 +131,7 @@ export default function HarwichPage() {
               Or book via your preferred platform.
             </p>
           </div>
-          <BookingButtons airbnbUrl="https://www.airbnb.co.uk/rooms/23714563" bookingUrl="https://www.booking.com/hotel/gb/on-the-quay.en-gb.html" hideDirect />
+          <BookingButtons airbnbUrl="https://www.airbnb.co.uk/rooms/23714563" bookingUrl="https://www.booking.com/hotel/gb/on-the-quay.en-gb.html" />
         </div>
       </section>
     </>

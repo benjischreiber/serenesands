@@ -137,7 +137,6 @@ export default function BrightonPage() {
           <BookingButtons
             airbnbUrl="https://www.airbnb.co.uk/rooms/781279887057900075"
             bookingUrl="https://www.booking.com/hotel/gb/clarencia-central-brighton.en-gb.html"
-            hideDirect
           />
         </div>
       </section>

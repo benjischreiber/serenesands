@@ -1,27 +1,21 @@
 interface Props {
   airbnbUrl: string;
   bookingUrl: string;
-  /** URL for "Book direct" button. Pass "#book" to scroll to calendar, or omit for phone link. */
+  /** URL for "Book direct" button — pass "#book" to scroll to the calendar.
+   *  Omit entirely to hide the button (e.g. in the footer platform strip). */
   directUrl?: string;
-  directPhone?: string;
-  /** Set true to hide the "Book direct" button entirely (e.g. in footer platform strip) */
-  hideDirect?: boolean;
 }
 
 export default function BookingButtons({
   airbnbUrl,
   bookingUrl,
   directUrl,
-  directPhone = "07830301317",
-  hideDirect = false,
 }: Props) {
-  const bookDirectHref = directUrl ?? `tel:${directPhone}`;
-
   return (
     <div className="flex flex-wrap gap-3">
-      {!hideDirect && (
+      {directUrl && (
         <a
-          href={bookDirectHref}
+          href={directUrl}
           className="inline-flex items-center bg-ocean-700 text-white font-semibold px-6 py-3 rounded-full hover:bg-ocean-600 transition-colors text-sm"
         >
           Book direct

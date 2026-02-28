@@ -129,7 +129,7 @@ export default function FelixstowePage() {
               Or book via your preferred platform.
             </p>
           </div>
-          <BookingButtons airbnbUrl="https://www.airbnb.co.uk/rooms/9095485" bookingUrl="https://www.booking.com/hotel/gb/serene-sands.en-gb.html" hideDirect />
+          <BookingButtons airbnbUrl="https://www.airbnb.co.uk/rooms/9095485" bookingUrl="https://www.booking.com/hotel/gb/serene-sands.en-gb.html" />
         </div>
       </section>
     </>

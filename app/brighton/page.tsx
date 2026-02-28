@@ -115,14 +115,18 @@ export default function BrightonPage() {
       </section>
 
       {/* ── Booking calendar ─────────────────────────────────── */}
-      <section id="book" className="max-w-6xl mx-auto px-6 py-20">
-        <p className="text-ocean-500 text-xs tracking-[0.2em] uppercase font-medium mb-2">
-          Availability &amp; booking
-        </p>
-        <h2 className="font-serif text-3xl text-ocean-950 mb-10">
-          Book direct
-        </h2>
-        <BookingCalendar calendarKey={CALENDAR_KEY} propertyId="618325" />
+      <section id="book" className="py-20">
+        <div className="max-w-6xl mx-auto px-6 mb-10">
+          <p className="text-ocean-500 text-xs tracking-[0.2em] uppercase font-medium mb-2">
+            Availability &amp; booking
+          </p>
+          <h2 className="font-serif text-3xl text-ocean-950">
+            Book direct
+          </h2>
+        </div>
+        <div className="overflow-x-auto px-6">
+          <BookingCalendar calendarKey={CALENDAR_KEY} propertyId="618325" />
+        </div>
       </section>
 
       {/* ── Book via platforms CTA ───────────────────────────── */}

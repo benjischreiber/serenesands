@@ -119,7 +119,7 @@ export default function FelixstowePage() {
             Book direct
           </h2>
         </div>
-        <div className="overflow-x-auto px-6">
+        <div className="max-w-lg mx-auto px-6">
           <BookingCalendar calendarKey={CALENDAR_KEY} propertyId="385019" />
         </div>
       </section>

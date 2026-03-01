@@ -24,8 +24,8 @@ export default function BookingCalendar({ calendarKey, propertyId }: Props) {
   const html = `<!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>html,body{margin:0;padding:0;background:transparent;}</style>
+  <meta name="viewport" content="width=480,initial-scale=1">
+  <style>html,body{margin:0;padding:0;background:transparent;max-width:480px;overflow-x:hidden;}</style>
 </head>
 <body>
   <div data-calendar-key="${calendarKey}" data-calendar-property-id="${propertyId}"></div>

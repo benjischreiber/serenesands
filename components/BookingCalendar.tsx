@@ -46,12 +46,14 @@ export default function BookingCalendar({ calendarKey, propertyId }: Props) {
 </html>`;
 
   return (
-    <iframe
-      ref={iframeRef}
-      srcDoc={html}
-      style={{ width: "100%", height: "420px", border: "none" }}
-      title="Availability calendar"
-      scrolling="no"
-    />
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <iframe
+        ref={iframeRef}
+        srcDoc={html}
+        style={{ width: "480px", maxWidth: "100%", height: "420px", border: "none" }}
+        title="Availability calendar"
+        scrolling="no"
+      />
+    </div>
   );
 }

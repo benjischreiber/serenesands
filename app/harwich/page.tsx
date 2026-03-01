@@ -121,7 +121,7 @@ export default function HarwichPage() {
             Book direct
           </h2>
         </div>
-        <div className="max-w-lg mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <BookingCalendar calendarKey={CALENDAR_KEY} propertyId="532734" />
         </div>
       </section>

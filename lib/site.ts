@@ -13,7 +13,7 @@ export const properties = [
     location: "Brighton",
     title: "Brighton Holiday Let - Serenity Square",
     description:
-      "2-bedroom ground floor flat on Clarence Square, Brighton, 350 yards from the beach. Book direct or via Airbnb and Booking.com.",
+      "Central Brighton holiday apartment on Clarence Square, 350 yards from the beach and close to The Lanes. Book direct.",
     shortDescription:
       "A 2-bedroom ground floor flat on Clarence Square in central Brighton, 350 yards from the beach.",
     type: "Ground floor flat",
@@ -30,7 +30,7 @@ export const properties = [
     location: "Felixstowe",
     title: "Felixstowe Holiday Let - Serene Sands",
     description:
-      "3-bedroom townhouse facing directly onto the sea in Felixstowe. Stunning sea views, promenade walks, and the Landguard Peninsula on the doorstep.",
+      "Seafront holiday house in Felixstowe with 3 bedrooms, direct sea views, promenade walks and Landguard Peninsula nearby.",
     shortDescription:
       "A 3-bedroom townhouse in Felixstowe with direct sea views and promenade walks nearby.",
     type: "Townhouse",
@@ -46,7 +46,7 @@ export const properties = [
     location: "Harwich",
     title: "Harwich Holiday Let - On the Quay",
     description:
-      "2-bedroom apartment in the listed 1864 Quayside Court, Harwich, facing the Quay and Pier. Restaurant and pub on the doorstep.",
+      "Harwich Quay holiday apartment in listed Quayside Court, facing the Quay and Pier with harbour walks nearby.",
     shortDescription:
       "A 2-bedroom apartment in listed Quayside Court, facing Harwich Quay and Pier.",
     type: "Apartment",

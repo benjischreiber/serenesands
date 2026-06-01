@@ -4,6 +4,7 @@ import Image from "next/image";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 import { homepageReviews } from "@/lib/reviews";
 import { absoluteUrl, homeJsonLd } from "@/lib/site";
+import { guideLinks } from "@/lib/seo-content";
 
 export const metadata: Metadata = {
   title: "Seaside Holiday Lets in Brighton, Felixstowe and Harwich",
@@ -89,9 +90,9 @@ export default function HomePage() {
             Brighton · Felixstowe · Harwich
           </p>
           <h1 className="font-serif text-5xl md:text-7xl font-semibold leading-[1.1] mb-6">
-            Your perfect
+            Seaside holiday lets
             <br />
-            <em className="text-sand-300">seaside escape</em>
+            <em className="text-sand-300">in Brighton, Felixstowe &amp; Harwich</em>
           </h1>
           <p className="text-white/65 text-lg md:text-xl max-w-lg mb-10 leading-relaxed">
             Three beautifully appointed holiday lets on England&apos;s coast —
@@ -176,6 +177,44 @@ export default function HomePage() {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-white border-y border-sand-200">
+        <div className="max-w-6xl mx-auto px-6 py-20">
+          <p className="text-ocean-500 text-xs tracking-[0.2em] uppercase font-medium mb-2">
+            Local guides
+          </p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+            <h2 className="font-serif text-4xl text-ocean-950">
+              Plan the days around your stay
+            </h2>
+            <Link
+              href="/returning-guests"
+              className="text-ocean-700 font-semibold hover:text-ocean-500"
+            >
+              Returning guests and referrals →
+            </Link>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {guideLinks.map((guide) => (
+              <Link
+                key={guide.href}
+                href={guide.href}
+                className="group border border-sand-200 rounded-xl p-6 bg-sand-50 hover:bg-white hover:shadow-md transition-all"
+              >
+                <h3 className="font-serif text-2xl text-ocean-950 mb-3">
+                  {guide.title}
+                </h3>
+                <p className="text-ocean-800/70 leading-relaxed text-sm mb-5">
+                  {guide.description}
+                </p>
+                <span className="text-ocean-700 text-sm font-semibold group-hover:text-ocean-500">
+                  Read guide →
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

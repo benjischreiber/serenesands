@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { guideLinks } from "@/lib/seo-content";
 import { absoluteUrl, properties } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -17,5 +18,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.9,
     })),
+    ...guideLinks.map((guide) => ({
+      url: absoluteUrl(guide.href),
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    {
+      url: absoluteUrl("/returning-guests"),
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
   ];
 }

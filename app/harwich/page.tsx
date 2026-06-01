@@ -3,17 +3,19 @@ import Image from "next/image";
 import BookingButtons from "@/components/BookingButtons";
 import BookingCalendar from "@/components/BookingCalendar";
 import PhotoGrid from "@/components/PhotoGrid";
+import PropertySeoSections from "@/components/PropertySeoSections";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 import { harwichReviews } from "@/lib/reviews";
 import { absoluteUrl, getProperty, propertyJsonLd } from "@/lib/site";
+import { propertySeoContent } from "@/lib/seo-content";
 
 const CALENDAR_KEY =
   "ADD4FA91A2F53198491534257B7B793007C0524B9A2CDD0947E7E8A0C5FA0C82EAFA9E1F30A0A500E9A6558C6CD2CFC02E1A9A3F2F445E5E";
 const property = getProperty("harwich");
 
 export const metadata: Metadata = {
-  title: property.title,
-  description: property.description,
+  title: propertySeoContent.harwich.searchTitle,
+  description: propertySeoContent.harwich.metaDescription,
   alternates: {
     canonical: "/harwich",
   },
@@ -106,6 +108,8 @@ export default function HarwichPage() {
           </div>
         </div>
       </section>
+
+      <PropertySeoSections slug="harwich" />
 
       {/* ── Photo gallery ────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-20">

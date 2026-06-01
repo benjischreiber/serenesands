@@ -72,36 +72,11 @@ export function propertyJsonLd(slug: PropertySlug) {
   const property = getProperty(slug);
   const propertyUrl = absoluteUrl(`/${property.slug}`);
   const imageUrl = absoluteUrl(`/images/${property.slug}/hero.jpg`);
-  const propertyId = `${propertyUrl}#property`;
+  const accommodationId = `${propertyUrl}#accommodation`;
 
   return {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "VacationRental",
-        "@id": propertyId,
-        name: property.name,
-        description: property.shortDescription,
-        url: propertyUrl,
-        image: imageUrl,
-        telephone: contactPhone,
-        email: contactEmail,
-        numberOfBedrooms: property.bedrooms,
-        accommodationCategory: property.type,
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: property.location,
-          addressCountry: "GB",
-        },
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: property.ratingValue,
-          reviewCount: property.reviewCount,
-          bestRating: 5,
-          worstRating: 1,
-        },
-        sameAs: [property.airbnbUrl, property.bookingUrl],
-      },
       {
         "@type": "LodgingBusiness",
         "@id": `${propertyUrl}#lodging-business`,
@@ -116,9 +91,17 @@ export function propertyJsonLd(slug: PropertySlug) {
           addressLocality: property.location,
           addressCountry: "GB",
         },
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: property.ratingValue,
+          reviewCount: property.reviewCount,
+          bestRating: 5,
+          worstRating: 1,
+        },
+        sameAs: [property.airbnbUrl, property.bookingUrl],
         containsPlace: {
           "@type": "Accommodation",
-          "@id": propertyId,
+          "@id": accommodationId,
           name: property.name,
           numberOfBedrooms: property.bedrooms,
           accommodationCategory: property.type,
@@ -150,7 +133,7 @@ export const homeJsonLd = {
   makesOffer: properties.map((property) => ({
     "@type": "Offer",
     itemOffered: {
-      "@type": "VacationRental",
+      "@type": "Accommodation",
       name: property.name,
       url: absoluteUrl(`/${property.slug}`),
       address: {

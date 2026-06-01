@@ -137,6 +137,7 @@ export function propertyJsonLd(slug: PropertySlug) {
         identifier: `${siteName.toLowerCase().replace(/\s+/g, "-")}-${property.slug}`,
         name: property.name,
         description: property.shortDescription,
+        additionalType: property.type,
         url: propertyUrl,
         image: imageUrls,
         telephone: contactPhone,
@@ -175,7 +176,6 @@ export function propertyJsonLd(slug: PropertySlug) {
           worstRating: 1,
         },
         sameAs: [property.airbnbUrl, property.bookingUrl],
-        containsPlace: accommodation,
         parentOrganization: {
           "@type": "Organization",
           name: siteName,

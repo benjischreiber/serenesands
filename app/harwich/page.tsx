@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
+import BookDirectBlock from "@/components/BookDirectBlock";
 import BookingButtons from "@/components/BookingButtons";
 import BookingCalendar from "@/components/BookingCalendar";
 import PhotoGrid from "@/components/PhotoGrid";
@@ -93,7 +95,12 @@ export default function HarwichPage() {
               </span>
             </div>
 
-            <BookingButtons airbnbUrl="https://www.airbnb.co.uk/rooms/23714563" bookingUrl="https://www.booking.com/hotel/gb/on-the-quay.en-gb.html" directUrl="#book" />
+            <BookingButtons
+              airbnbUrl="https://www.airbnb.co.uk/rooms/23714563"
+              bookingUrl="https://www.booking.com/hotel/gb/on-the-quay.en-gb.html"
+              directUrl="#book"
+              propertyName={property.name}
+            />
           </div>
 
           {/* Hero photo */}
@@ -110,6 +117,20 @@ export default function HarwichPage() {
       </section>
 
       <PropertySeoSections slug="harwich" />
+
+      <section className="max-w-6xl mx-auto px-6 pb-20">
+        <p className="text-ocean-800/75 leading-relaxed max-w-3xl">
+          If you want a{" "}
+          <Link
+            href="/harwich"
+            className="text-ocean-700 font-semibold hover:text-ocean-500"
+          >
+            Harwich Quay holiday apartment
+          </Link>{" "}
+          rather than a standard hotel stopover, On the Quay gives you historic
+          surroundings, harbour walks and a self-catering base by the water.
+        </p>
+      </section>
 
       {/* ── Photo gallery ────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-20">
@@ -140,6 +161,15 @@ export default function HarwichPage() {
 
       {/* ── Booking calendar ─────────────────────────────────── */}
       <section id="book" className="py-20">
+        <BookDirectBlock
+          links={[
+            {
+              href: "#book",
+              label: "Check direct availability",
+              propertyName: property.name,
+            },
+          ]}
+        />
         <div className="max-w-6xl mx-auto px-6 mb-10">
           <p className="text-ocean-500 text-xs tracking-[0.2em] uppercase font-medium mb-2">
             Availability &amp; booking
@@ -149,7 +179,11 @@ export default function HarwichPage() {
           </h2>
         </div>
         <div className="max-w-6xl mx-auto px-6">
-          <BookingCalendar calendarKey={CALENDAR_KEY} propertyId="532734" />
+          <BookingCalendar
+            calendarKey={CALENDAR_KEY}
+            propertyId="532734"
+            propertyName={property.name}
+          />
         </div>
       </section>
 
@@ -162,7 +196,11 @@ export default function HarwichPage() {
               Or book via your preferred platform.
             </p>
           </div>
-          <BookingButtons airbnbUrl="https://www.airbnb.co.uk/rooms/23714563" bookingUrl="https://www.booking.com/hotel/gb/on-the-quay.en-gb.html" />
+          <BookingButtons
+            airbnbUrl="https://www.airbnb.co.uk/rooms/23714563"
+            bookingUrl="https://www.booking.com/hotel/gb/on-the-quay.en-gb.html"
+            propertyName={property.name}
+          />
         </div>
       </section>
     </>

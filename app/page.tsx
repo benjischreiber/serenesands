@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import BookDirectBlock from "@/components/BookDirectBlock";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 import { homepageReviews } from "@/lib/reviews";
 import { absoluteUrl, homeJsonLd } from "@/lib/site";
@@ -180,6 +181,48 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <p className="text-ocean-500 text-xs tracking-[0.2em] uppercase font-medium mb-2">
+          Find the right stay
+        </p>
+        <h2 className="font-serif text-4xl text-ocean-950 mb-6">
+          Three coastal bases, three different kinds of break
+        </h2>
+        <div className="space-y-4 text-ocean-800/75 leading-relaxed max-w-3xl">
+          <p>
+            Choose the{" "}
+            <Link
+              href="/felixstowe"
+              className="text-ocean-700 font-semibold hover:text-ocean-500"
+            >
+              Felixstowe seafront holiday house
+            </Link>{" "}
+            for direct sea views and a calmer Suffolk coast stay.
+          </p>
+          <p>
+            Choose the{" "}
+            <Link
+              href="/brighton"
+              className="text-ocean-700 font-semibold hover:text-ocean-500"
+            >
+              central Brighton holiday apartment
+            </Link>{" "}
+            for beach, restaurants, The Lanes and a train-friendly city break.
+          </p>
+          <p>
+            Choose the{" "}
+            <Link
+              href="/harwich"
+              className="text-ocean-700 font-semibold hover:text-ocean-500"
+            >
+              Harwich Quay holiday apartment
+            </Link>{" "}
+            for harbour views, maritime history and a characterful old-town
+            setting.
+          </p>
+        </div>
+      </section>
+
       <section className="bg-white border-y border-sand-200">
         <div className="max-w-6xl mx-auto px-6 py-20">
           <p className="text-ocean-500 text-xs tracking-[0.2em] uppercase font-medium mb-2">
@@ -232,44 +275,25 @@ export default function HomePage() {
         <ReviewsCarousel reviews={homepageReviews} showProperty />
       </section>
 
-      {/* ── Book direct strip ────────────────────────────────── */}
-      <section className="bg-sand-100 border-y border-sand-200">
-        <div className="max-w-6xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center gap-10">
-          <div className="flex-1">
-            <p className="text-ocean-500 text-xs tracking-[0.2em] uppercase font-medium mb-3">
-              Why book with us
-            </p>
-            <h2 className="font-serif text-3xl text-ocean-950 mb-4">
-              Book direct &amp; save
-            </h2>
-            <p className="text-ocean-800/70 leading-relaxed max-w-xl">
-              Book directly with us and skip the platform fees. Use our online
-              availability calendar to check dates and book instantly — no
-              middleman, no extra charges.
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-            <a
-              href="/felixstowe#book"
-              className="inline-flex items-center justify-center bg-ocean-700 text-white font-semibold px-7 py-3.5 rounded-full hover:bg-ocean-600 transition-colors text-sm"
-            >
-              Felixstowe
-            </a>
-            <a
-              href="/harwich#book"
-              className="inline-flex items-center justify-center bg-ocean-700 text-white font-semibold px-7 py-3.5 rounded-full hover:bg-ocean-600 transition-colors text-sm"
-            >
-              Harwich
-            </a>
-            <a
-              href="/brighton#book"
-              className="inline-flex items-center justify-center bg-ocean-700 text-white font-semibold px-7 py-3.5 rounded-full hover:bg-ocean-600 transition-colors text-sm"
-            >
-              Brighton
-            </a>
-          </div>
-        </div>
-      </section>
+      <BookDirectBlock
+        links={[
+          {
+            href: "/felixstowe#book",
+            label: "Book Felixstowe direct",
+            propertyName: "Serene Sands",
+          },
+          {
+            href: "/brighton#book",
+            label: "Book Brighton direct",
+            propertyName: "Serenity Square",
+          },
+          {
+            href: "/harwich#book",
+            label: "Book Harwich direct",
+            propertyName: "On the Quay",
+          },
+        ]}
+      />
     </>
   );
 }

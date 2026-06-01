@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
+import BookDirectBlock from "@/components/BookDirectBlock";
 import BookingButtons from "@/components/BookingButtons";
 import BookingCalendar from "@/components/BookingCalendar";
 import PhotoGrid from "@/components/PhotoGrid";
@@ -96,6 +98,7 @@ export default function BrightonPage() {
               airbnbUrl="https://www.airbnb.co.uk/rooms/781279887057900075"
               bookingUrl="https://www.booking.com/hotel/gb/clarencia-central-brighton.en-gb.html"
               directUrl="#book"
+              propertyName={property.name}
             />
           </div>
 
@@ -113,6 +116,20 @@ export default function BrightonPage() {
       </section>
 
       <PropertySeoSections slug="brighton" />
+
+      <section className="max-w-6xl mx-auto px-6 pb-20">
+        <p className="text-ocean-800/75 leading-relaxed max-w-3xl">
+          For guests weighing up hotels against a{" "}
+          <Link
+            href="/brighton"
+            className="text-ocean-700 font-semibold hover:text-ocean-500"
+          >
+            central Brighton holiday apartment
+          </Link>
+          , Serenity Square gives you a private base close to the beach, The
+          Lanes and the city centre.
+        </p>
+      </section>
 
       {/* ── Photo gallery ────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-20">
@@ -143,6 +160,15 @@ export default function BrightonPage() {
 
       {/* ── Booking calendar ─────────────────────────────────── */}
       <section id="book" className="py-20">
+        <BookDirectBlock
+          links={[
+            {
+              href: "#book",
+              label: "Check direct availability",
+              propertyName: property.name,
+            },
+          ]}
+        />
         <div className="max-w-6xl mx-auto px-6 mb-10">
           <p className="text-ocean-500 text-xs tracking-[0.2em] uppercase font-medium mb-2">
             Availability &amp; booking
@@ -152,7 +178,11 @@ export default function BrightonPage() {
           </h2>
         </div>
         <div className="max-w-6xl mx-auto px-6">
-          <BookingCalendar calendarKey={CALENDAR_KEY} propertyId="618325" />
+          <BookingCalendar
+            calendarKey={CALENDAR_KEY}
+            propertyId="618325"
+            propertyName={property.name}
+          />
         </div>
       </section>
 
@@ -168,6 +198,7 @@ export default function BrightonPage() {
           <BookingButtons
             airbnbUrl="https://www.airbnb.co.uk/rooms/781279887057900075"
             bookingUrl="https://www.booking.com/hotel/gb/clarencia-central-brighton.en-gb.html"
+            propertyName={property.name}
           />
         </div>
       </section>

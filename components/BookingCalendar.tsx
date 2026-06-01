@@ -1,14 +1,21 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { trackAnalyticsEvent } from "@/lib/analytics-events";
 
 interface Props {
   calendarKey: string;
   propertyId: string;
+  propertyName: string;
 }
 
-export default function BookingCalendar({ calendarKey, propertyId }: Props) {
+export default function BookingCalendar({
+  calendarKey,
+  propertyId,
+  propertyName,
+}: Props) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const trackedRef = useRef(false);
 
   // Listen for height messages from the iframe content
   useEffect(() => {
@@ -20,6 +27,19 @@ export default function BookingCalendar({ calendarKey, propertyId }: Props) {
     window.addEventListener("message", handler);
     return () => window.removeEventListener("message", handler);
   }, []);
+
+  const trackCalendarInteraction = () => {
+    if (trackedRef.current) {
+      return;
+    }
+
+    trackedRef.current = true;
+    trackAnalyticsEvent("calendar_interaction", {
+      property_name: propertyName,
+      link_url: `supercontrol:${propertyId}`,
+      cta_text: "Availability calendar",
+    });
+  };
 
   const html = `<!DOCTYPE html>
 <html>
@@ -53,6 +73,8 @@ export default function BookingCalendar({ calendarKey, propertyId }: Props) {
         style={{ width: "480px", maxWidth: "100%", height: "420px", border: "none" }}
         title="Availability calendar"
         scrolling="no"
+        onFocus={trackCalendarInteraction}
+        onPointerDown={trackCalendarInteraction}
       />
     </div>
   );

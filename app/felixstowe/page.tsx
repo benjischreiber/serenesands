@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
+import BookDirectBlock from "@/components/BookDirectBlock";
 import BookingButtons from "@/components/BookingButtons";
 import BookingCalendar from "@/components/BookingCalendar";
 import PhotoGrid from "@/components/PhotoGrid";
@@ -91,7 +93,12 @@ export default function FelixstowePage() {
               </span>
             </div>
 
-            <BookingButtons airbnbUrl="https://www.airbnb.co.uk/rooms/9095485" bookingUrl="https://www.booking.com/hotel/gb/serene-sands.en-gb.html" directUrl="#book" />
+            <BookingButtons
+              airbnbUrl="https://www.airbnb.co.uk/rooms/9095485"
+              bookingUrl="https://www.booking.com/hotel/gb/serene-sands.en-gb.html"
+              directUrl="#book"
+              propertyName={property.name}
+            />
           </div>
 
           {/* Hero photo */}
@@ -108,6 +115,21 @@ export default function FelixstowePage() {
       </section>
 
       <PropertySeoSections slug="felixstowe" />
+
+      <section className="max-w-6xl mx-auto px-6 pb-20">
+        <p className="text-ocean-800/75 leading-relaxed max-w-3xl">
+          If you are comparing a{" "}
+          <Link
+            href="/felixstowe"
+            className="text-ocean-700 font-semibold hover:text-ocean-500"
+          >
+            Felixstowe seafront holiday house
+          </Link>{" "}
+          with hotels or apartments, Serene Sands gives you the privacy of a
+          whole home, direct sea views and self-catering space for a proper
+          coastal break.
+        </p>
+      </section>
 
       {/* ── Photo gallery ────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-20">
@@ -138,6 +160,15 @@ export default function FelixstowePage() {
 
       {/* ── Booking calendar ─────────────────────────────────── */}
       <section id="book" className="py-20">
+        <BookDirectBlock
+          links={[
+            {
+              href: "#book",
+              label: "Check direct availability",
+              propertyName: property.name,
+            },
+          ]}
+        />
         <div className="max-w-6xl mx-auto px-6 mb-10">
           <p className="text-ocean-500 text-xs tracking-[0.2em] uppercase font-medium mb-2">
             Availability &amp; booking
@@ -147,7 +178,11 @@ export default function FelixstowePage() {
           </h2>
         </div>
         <div className="max-w-6xl mx-auto px-6">
-          <BookingCalendar calendarKey={CALENDAR_KEY} propertyId="385019" />
+          <BookingCalendar
+            calendarKey={CALENDAR_KEY}
+            propertyId="385019"
+            propertyName={property.name}
+          />
         </div>
       </section>
 
@@ -160,7 +195,11 @@ export default function FelixstowePage() {
               Or book via your preferred platform.
             </p>
           </div>
-          <BookingButtons airbnbUrl="https://www.airbnb.co.uk/rooms/9095485" bookingUrl="https://www.booking.com/hotel/gb/serene-sands.en-gb.html" />
+          <BookingButtons
+            airbnbUrl="https://www.airbnb.co.uk/rooms/9095485"
+            bookingUrl="https://www.booking.com/hotel/gb/serene-sands.en-gb.html"
+            propertyName={property.name}
+          />
         </div>
       </section>
     </>

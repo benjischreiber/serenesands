@@ -1,7 +1,32 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 import { homepageReviews } from "@/lib/reviews";
+import { absoluteUrl, homeJsonLd } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Seaside Holiday Lets in Brighton, Felixstowe and Harwich",
+  description:
+    "Book direct for Serene Holidays seaside holiday lets in Brighton, Felixstowe and Harwich. Comfortable coastal stays hosted by Benji and Leah.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Serene Holidays - Seaside Holiday Lets",
+    description:
+      "Book direct for coastal holiday lets in Brighton, Felixstowe and Harwich.",
+    url: absoluteUrl("/"),
+    images: [
+      {
+        url: absoluteUrl("/images/hero.jpg"),
+        width: 1200,
+        height: 630,
+        alt: "Serene Holidays seaside view",
+      },
+    ],
+  },
+};
 
 const properties = [
   {
@@ -42,6 +67,10 @@ const properties = [
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
+      />
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative bg-ocean-950 text-white overflow-hidden min-h-[82vh] flex items-center">
         {/* Hero photo */}

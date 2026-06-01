@@ -7,10 +7,9 @@ interface Photo {
 
 interface Props {
   photos: Photo[];
-  slug: string;
 }
 
-export default function PhotoGrid({ photos, slug }: Props) {
+export default function PhotoGrid({ photos }: Props) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
       {photos.map((photo, i) => (

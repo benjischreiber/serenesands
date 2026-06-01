@@ -5,14 +5,31 @@ import BookingCalendar from "@/components/BookingCalendar";
 import PhotoGrid from "@/components/PhotoGrid";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 import { harwichReviews } from "@/lib/reviews";
+import { absoluteUrl, getProperty, propertyJsonLd } from "@/lib/site";
 
 const CALENDAR_KEY =
   "ADD4FA91A2F53198491534257B7B793007C0524B9A2CDD0947E7E8A0C5FA0C82EAFA9E1F30A0A500E9A6558C6CD2CFC02E1A9A3F2F445E5E";
+const property = getProperty("harwich");
 
 export const metadata: Metadata = {
-  title: "Harwich — On the Quay | Serene Holidays",
-  description:
-    "2-bedroom apartment in the listed 1864 Quayside Court, Harwich — facing the Quay and Pier. Restaurant and pub on the doorstep.",
+  title: property.title,
+  description: property.description,
+  alternates: {
+    canonical: "/harwich",
+  },
+  openGraph: {
+    title: `${property.name} - Harwich Holiday Let`,
+    description: property.description,
+    url: absoluteUrl("/harwich"),
+    images: [
+      {
+        url: absoluteUrl("/images/harwich/hero.jpg"),
+        width: 1200,
+        height: 630,
+        alt: "On the Quay apartment in historic Quayside Court, Harwich",
+      },
+    ],
+  },
 };
 
 const photos = Array.from({ length: 24 }, (_, i) => ({
@@ -23,6 +40,12 @@ const photos = Array.from({ length: 24 }, (_, i) => ({
 export default function HarwichPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(propertyJsonLd("harwich")),
+        }}
+      />
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="bg-white border-b border-sand-200">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
@@ -92,7 +115,7 @@ export default function HarwichPage() {
         <h2 className="font-serif text-3xl text-ocean-950 mb-10">
           Inside the apartment
         </h2>
-        <PhotoGrid photos={photos} slug="harwich" />
+        <PhotoGrid photos={photos} />
       </section>
 
       {/* ── Reviews ──────────────────────────────────────────── */}

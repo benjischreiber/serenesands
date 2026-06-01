@@ -3,6 +3,8 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Analytics from "@/components/Analytics";
+import { absoluteUrl, siteName, siteUrl } from "@/lib/site";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -18,9 +20,52 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Serene Holidays — Seaside Holiday Lets",
+  metadataBase: siteUrl,
+  title: {
+    default: "Serene Holidays - Seaside Holiday Lets",
+    template: `%s | ${siteName}`,
+  },
   description:
-    "Three beautifully appointed holiday lets on England's coast — Brighton, Felixstowe & Harwich. Book direct for the best rate.",
+    "Three beautifully appointed holiday lets on England's coast: Brighton, Felixstowe and Harwich. Book direct for the best rate.",
+  applicationName: siteName,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    siteName,
+    url: absoluteUrl("/"),
+    title: "Serene Holidays - Seaside Holiday Lets",
+    description:
+      "Three beautifully appointed holiday lets on England's coast: Brighton, Felixstowe and Harwich.",
+    images: [
+      {
+        url: absoluteUrl("/images/hero.jpg"),
+        width: 1200,
+        height: 630,
+        alt: "Serene Holidays seaside holiday lets",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Serene Holidays - Seaside Holiday Lets",
+    description:
+      "Three beautifully appointed holiday lets on England's coast: Brighton, Felixstowe and Harwich.",
+    images: [absoluteUrl("/images/hero.jpg")],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -34,6 +79,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

@@ -5,14 +5,31 @@ import BookingCalendar from "@/components/BookingCalendar";
 import PhotoGrid from "@/components/PhotoGrid";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 import { felixstoweReviews } from "@/lib/reviews";
+import { absoluteUrl, getProperty, propertyJsonLd } from "@/lib/site";
 
 const CALENDAR_KEY =
   "ADD4FA91A2F53198491534257B7B793007C0524B9A2CDD0947E7E8A0C5FA0C82EAFA9E1F30A0A500E9A6558C6CD2CFC02E1A9A3F2F445E5E";
+const property = getProperty("felixstowe");
 
 export const metadata: Metadata = {
-  title: "Felixstowe — Serene Sands | Serene Holidays",
-  description:
-    "3-bedroom townhouse facing directly onto the sea in Felixstowe. Stunning sea views, promenade walks, and the Landguard Peninsula on the doorstep.",
+  title: property.title,
+  description: property.description,
+  alternates: {
+    canonical: "/felixstowe",
+  },
+  openGraph: {
+    title: `${property.name} - Felixstowe Holiday Let`,
+    description: property.description,
+    url: absoluteUrl("/felixstowe"),
+    images: [
+      {
+        url: absoluteUrl("/images/felixstowe/hero.jpg"),
+        width: 1200,
+        height: 630,
+        alt: "Serene Sands sea-facing townhouse in Felixstowe",
+      },
+    ],
+  },
 };
 
 const photos = Array.from({ length: 20 }, (_, i) => ({
@@ -23,6 +40,12 @@ const photos = Array.from({ length: 20 }, (_, i) => ({
 export default function FelixstowePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(propertyJsonLd("felixstowe")),
+        }}
+      />
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="bg-white border-b border-sand-200">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
@@ -90,7 +113,7 @@ export default function FelixstowePage() {
         <h2 className="font-serif text-3xl text-ocean-950 mb-10">
           Inside the house
         </h2>
-        <PhotoGrid photos={photos} slug="felixstowe" />
+        <PhotoGrid photos={photos} />
       </section>
 
       {/* ── Reviews ──────────────────────────────────────────── */}

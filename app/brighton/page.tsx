@@ -5,14 +5,31 @@ import BookingCalendar from "@/components/BookingCalendar";
 import PhotoGrid from "@/components/PhotoGrid";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 import { brightonReviews } from "@/lib/reviews";
+import { absoluteUrl, getProperty, propertyJsonLd } from "@/lib/site";
 
 const CALENDAR_KEY =
   "ADD4FA91A2F53198491534257B7B793007C0524B9A2CDD0947E7E8A0C5FA0C82EAFA9E1F30A0A500E9A6558C6CD2CFC02E1A9A3F2F445E5E";
+const property = getProperty("brighton");
 
 export const metadata: Metadata = {
-  title: "Brighton — Serenity Square | Serene Holidays",
-  description:
-    "2-bedroom ground floor flat on Clarence Square, Brighton — 350 yards from the beach. Book direct or via Airbnb and Booking.com.",
+  title: property.title,
+  description: property.description,
+  alternates: {
+    canonical: "/brighton",
+  },
+  openGraph: {
+    title: `${property.name} - Brighton Holiday Let`,
+    description: property.description,
+    url: absoluteUrl("/brighton"),
+    images: [
+      {
+        url: absoluteUrl("/images/brighton/hero.jpg"),
+        width: 1200,
+        height: 630,
+        alt: "Serenity Square ground floor flat in Brighton",
+      },
+    ],
+  },
 };
 
 const photos = Array.from({ length: 25 }, (_, i) => ({
@@ -23,6 +40,12 @@ const photos = Array.from({ length: 25 }, (_, i) => ({
 export default function BrightonPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(propertyJsonLd("brighton")),
+        }}
+      />
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="bg-white border-b border-sand-200">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
@@ -95,7 +118,7 @@ export default function BrightonPage() {
         <h2 className="font-serif text-3xl text-ocean-950 mb-10">
           Inside the flat
         </h2>
-        <PhotoGrid photos={photos} slug="brighton" />
+        <PhotoGrid photos={photos} />
       </section>
 
       {/* ── Reviews ──────────────────────────────────────────── */}

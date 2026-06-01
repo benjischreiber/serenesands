@@ -18,6 +18,15 @@ export const properties = [
       "A 2-bedroom ground floor flat on Clarence Square in central Brighton, 350 yards from the beach.",
     type: "Ground floor flat",
     bedrooms: 2,
+    sleeps: 4,
+    address: {
+      streetAddress: "Ground Floor Flat, 12 Clarence Square",
+      addressLocality: "Brighton",
+      addressRegion: "East Sussex",
+      postalCode: "BN1 2ED",
+      latitude: 50.823573,
+      longitude: -0.147389,
+    },
     ratingValue: 4.53,
     reviewCount: 40,
     airbnbUrl: "https://www.airbnb.co.uk/rooms/781279887057900075",
@@ -35,6 +44,15 @@ export const properties = [
       "A 3-bedroom townhouse in Felixstowe with direct sea views and promenade walks nearby.",
     type: "Townhouse",
     bedrooms: 3,
+    sleeps: 6,
+    address: {
+      streetAddress: "9 Old Fort Road",
+      addressLocality: "Felixstowe",
+      addressRegion: "Suffolk",
+      postalCode: "IP11 2GG",
+      latitude: 51.949563,
+      longitude: 1.334646,
+    },
     ratingValue: 4.83,
     reviewCount: 120,
     airbnbUrl: "https://www.airbnb.co.uk/rooms/9095485",
@@ -51,6 +69,15 @@ export const properties = [
       "A 2-bedroom apartment in listed Quayside Court, facing Harwich Quay and Pier.",
     type: "Apartment",
     bedrooms: 2,
+    sleeps: 4,
+    address: {
+      streetAddress: "Flat 19 Quayside Court, The Quay",
+      addressLocality: "Harwich",
+      addressRegion: "Essex",
+      postalCode: "CO12 3HH",
+      latitude: 51.947913,
+      longitude: 1.28655,
+    },
     ratingValue: 4.7,
     reviewCount: 103,
     airbnbUrl: "https://www.airbnb.co.uk/rooms/23714563",
@@ -71,12 +98,65 @@ export function getProperty(slug: PropertySlug) {
 export function propertyJsonLd(slug: PropertySlug) {
   const property = getProperty(slug);
   const propertyUrl = absoluteUrl(`/${property.slug}`);
-  const imageUrl = absoluteUrl(`/images/${property.slug}/hero.jpg`);
+  const imageUrls = [
+    absoluteUrl(`/images/${property.slug}/hero.jpg`),
+    ...Array.from({ length: 8 }, (_, index) =>
+      absoluteUrl(`/images/${property.slug}/${index + 1}.jpg`),
+    ),
+  ];
+  const imageUrl = imageUrls[0];
+  const rentalId = `${propertyUrl}#vacation-rental`;
   const accommodationId = `${propertyUrl}#accommodation`;
+  const postalAddress = {
+    "@type": "PostalAddress",
+    streetAddress: property.address.streetAddress,
+    addressLocality: property.address.addressLocality,
+    addressRegion: property.address.addressRegion,
+    postalCode: property.address.postalCode,
+    addressCountry: "GB",
+  };
+  const accommodation = {
+    "@type": "Accommodation",
+    "@id": accommodationId,
+    name: property.name,
+    numberOfBedrooms: property.bedrooms,
+    occupancy: {
+      "@type": "QuantitativeValue",
+      value: property.sleeps,
+    },
+    accommodationCategory: property.type,
+    additionalType: "EntirePlace",
+  };
 
   return {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "VacationRental",
+        "@id": rentalId,
+        identifier: `${siteName.toLowerCase().replace(/\s+/g, "-")}-${property.slug}`,
+        name: property.name,
+        description: property.shortDescription,
+        url: propertyUrl,
+        image: imageUrls,
+        telephone: contactPhone,
+        email: contactEmail,
+        address: postalAddress,
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: property.address.latitude,
+          longitude: property.address.longitude,
+        },
+        containsPlace: accommodation,
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: property.ratingValue,
+          reviewCount: property.reviewCount,
+          bestRating: 5,
+          worstRating: 1,
+        },
+        sameAs: [property.airbnbUrl, property.bookingUrl],
+      },
       {
         "@type": "LodgingBusiness",
         "@id": `${propertyUrl}#lodging-business`,
@@ -86,11 +166,7 @@ export function propertyJsonLd(slug: PropertySlug) {
         image: imageUrl,
         telephone: contactPhone,
         email: contactEmail,
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: property.location,
-          addressCountry: "GB",
-        },
+        address: postalAddress,
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: property.ratingValue,
@@ -99,13 +175,7 @@ export function propertyJsonLd(slug: PropertySlug) {
           worstRating: 1,
         },
         sameAs: [property.airbnbUrl, property.bookingUrl],
-        containsPlace: {
-          "@type": "Accommodation",
-          "@id": accommodationId,
-          name: property.name,
-          numberOfBedrooms: property.bedrooms,
-          accommodationCategory: property.type,
-        },
+        containsPlace: accommodation,
         parentOrganization: {
           "@type": "Organization",
           name: siteName,
@@ -138,7 +208,10 @@ export const homeJsonLd = {
       url: absoluteUrl(`/${property.slug}`),
       address: {
         "@type": "PostalAddress",
-        addressLocality: property.location,
+        streetAddress: property.address.streetAddress,
+        addressLocality: property.address.addressLocality,
+        addressRegion: property.address.addressRegion,
+        postalCode: property.address.postalCode,
         addressCountry: "GB",
       },
     },

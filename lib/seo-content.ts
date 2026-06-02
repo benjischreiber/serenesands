@@ -151,15 +151,15 @@ export const propertySeoContent: Record<
   harwich: {
     searchTitle: "Harwich Quay Holiday Apartment | Sleeps 4",
     metaDescription:
-      "Book On the Quay, a 2-bedroom holiday apartment in historic Harwich, facing the Quay and Pier with harbour walks on the doorstep.",
+      "Book On the Quay, a 2-bedroom holiday apartment in historic Harwich, close to the Quay and Pier with harbour walks on the doorstep.",
     intro: [
-      "On the Quay is a 2-bedroom holiday apartment in historic Harwich, set in listed Quayside Court and facing the Quay and Pier. It is a characterful base for guests who want maritime history, harbour views, walks, ferries, pubs and slower coastal days close at hand.",
+      "On the Quay is a 2-bedroom holiday apartment in historic Harwich, set in listed Quayside Court close to the Quay and Pier. It is a characterful base for guests who want maritime history, quayside walks, ferries, pubs and slower coastal days close at hand.",
       "The apartment works well for people searching for Harwich holiday accommodation, a self-catering apartment near Harwich Quay, or a comfortable stay before or after travelling through the port. It gives you a proper home base in the old town rather than a stopover box.",
     ],
     highlights: [
       "2 bedrooms, ideal for up to 4 guests",
       "Apartment in listed 1864 Quayside Court",
-      "Faces Harwich Quay and Pier",
+      "Quayside Court setting close to Harwich Quay and Pier",
       "Restaurants, pub and cafe close by",
       "Maritime walks from the doorstep",
       "Book direct calendar for availability and rates",
@@ -183,7 +183,7 @@ export const propertySeoContent: Record<
       {
         question: "Is On the Quay near Harwich harbour?",
         answer:
-          "Yes. The apartment faces the Quay and Pier, placing guests close to harbour walks, historic streets and local places to eat.",
+          "Yes. The apartment is in Quayside Court, close to the Quay and Pier, placing guests near harbour walks, historic streets and local places to eat.",
       },
       {
         question: "How many bedrooms does the Harwich apartment have?",
@@ -311,7 +311,7 @@ export const localGuides = {
     propertyHref: "/harwich",
     heroImage: "/images/harwich/hero.jpg",
     intro:
-      "Harwich is for guests who like history, harbour views and slower coastal wandering. Stay on the quay and the town's maritime story is outside the door.",
+      "Harwich is for guests who like history, harbour walks and slower coastal wandering. Stay close to the quay and the town's maritime story is outside the door.",
     sections: [
       {
         title: "Ha'penny Pier and the quay",
@@ -339,7 +339,7 @@ export const localGuides = {
       {
         question: "Is On the Quay close to the main sights?",
         answer:
-          "Yes. The apartment faces the Quay and Pier, so harbour walks and historic streets are close by.",
+          "Yes. The apartment is in Quayside Court, close to the Quay and Pier, so harbour walks and historic streets are close by.",
       },
       {
         question: "Is Harwich good for a quiet weekend?",

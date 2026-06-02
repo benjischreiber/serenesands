@@ -67,7 +67,7 @@ export default function HarwichPage() {
             <p className="text-ocean-800/70 leading-relaxed mb-4">
               Stay in this beautifully appointed 2-bedroom apartment in the
               listed Quayside Court — built in 1864 as a Railway Hotel,
-              sitting right at the heart of Harwich and facing the Quay and
+              sitting right at the heart of Harwich, close to the Quay and
               Pier.
             </p>
             <p className="text-ocean-800/70 leading-relaxed mb-8">
@@ -161,15 +161,7 @@ export default function HarwichPage() {
 
       {/* ── Booking calendar ─────────────────────────────────── */}
       <section id="book" className="py-20">
-        <BookDirectBlock
-          links={[
-            {
-              href: "#book",
-              label: "Check direct availability",
-              propertyName: property.name,
-            },
-          ]}
-        />
+        <BookDirectBlock />
         <div className="max-w-6xl mx-auto px-6 mb-10">
           <p className="text-ocean-500 text-xs tracking-[0.2em] uppercase font-medium mb-2">
             Availability &amp; booking

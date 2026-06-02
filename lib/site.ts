@@ -64,9 +64,9 @@ export const properties = [
     location: "Harwich",
     title: "Harwich Holiday Let - On the Quay",
     description:
-      "Harwich Quay holiday apartment in listed Quayside Court, facing the Quay and Pier with harbour walks nearby.",
+      "Harwich Quay holiday apartment in listed Quayside Court, close to the Quay and Pier with harbour walks nearby.",
     shortDescription:
-      "A 2-bedroom apartment in listed Quayside Court, facing Harwich Quay and Pier.",
+      "A 2-bedroom apartment in listed Quayside Court, close to Harwich Quay and Pier.",
     type: "Apartment",
     bedrooms: 2,
     sleeps: 4,

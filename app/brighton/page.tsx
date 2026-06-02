@@ -160,15 +160,7 @@ export default function BrightonPage() {
 
       {/* ── Booking calendar ─────────────────────────────────── */}
       <section id="book" className="py-20">
-        <BookDirectBlock
-          links={[
-            {
-              href: "#book",
-              label: "Check direct availability",
-              propertyName: property.name,
-            },
-          ]}
-        />
+        <BookDirectBlock />
         <div className="max-w-6xl mx-auto px-6 mb-10">
           <p className="text-ocean-500 text-xs tracking-[0.2em] uppercase font-medium mb-2">
             Availability &amp; booking

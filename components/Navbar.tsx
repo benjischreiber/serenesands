@@ -9,7 +9,6 @@ const links = [
   { href: "/brighton", label: "Brighton" },
   { href: "/felixstowe", label: "Felixstowe" },
   { href: "/harwich", label: "Harwich" },
-  { href: "/returning-guests", label: "Returning guests" },
 ];
 
 export default function Navbar() {

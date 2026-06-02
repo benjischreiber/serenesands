@@ -59,7 +59,7 @@ const properties = [
     location: "Harwich",
     tagline: "Historic quayside building",
     description:
-      "A beautifully appointed 2-bedroom apartment in listed Quayside Court — built 1864 as a Railway Hotel, facing the Quay and Pier.",
+      "A beautifully appointed 2-bedroom apartment in listed Quayside Court — built 1864 as a Railway Hotel, close to the Quay and Pier.",
     beds: 2,
     type: "Apartment",
     accentBg: "bg-ocean-50",
@@ -217,7 +217,7 @@ export default function HomePage() {
             >
               Harwich Quay holiday apartment
             </Link>{" "}
-            for harbour views, maritime history and a characterful old-town
+            for quayside walks, maritime history and a characterful old-town
             setting.
           </p>
         </div>
@@ -228,16 +228,10 @@ export default function HomePage() {
           <p className="text-ocean-500 text-xs tracking-[0.2em] uppercase font-medium mb-2">
             Local guides
           </p>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+          <div className="mb-10">
             <h2 className="font-serif text-4xl text-ocean-950">
               Plan the days around your stay
             </h2>
-            <Link
-              href="/returning-guests"
-              className="text-ocean-700 font-semibold hover:text-ocean-500"
-            >
-              Returning guests and referrals →
-            </Link>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {guideLinks.map((guide) => (

@@ -91,7 +91,7 @@ export default function HarwichPage() {
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-sand-400 inline-block" />
-                Quay &amp; Pier views
+                Close to Quay &amp; Pier
               </span>
             </div>
 

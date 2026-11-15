@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import BookDirectBlock from "@/components/BookDirectBlock";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
+import SuperhostBadge from "@/components/SuperhostBadge";
 import { homepageReviews } from "@/lib/reviews";
 import { absoluteUrl, homeJsonLd } from "@/lib/site";
 import { guideLinks } from "@/lib/seo-content";
@@ -95,10 +96,13 @@ export default function HomePage() {
             <br />
             <em className="text-sand-300">in Brighton, Felixstowe &amp; Harwich</em>
           </h1>
-          <p className="text-white/65 text-lg md:text-xl max-w-lg mb-10 leading-relaxed">
+          <p className="text-white/65 text-lg md:text-xl max-w-lg mb-6 leading-relaxed">
             Three beautifully appointed holiday lets on England&apos;s coast —
             Brighton, Felixstowe &amp; Harwich.
           </p>
+          <div className="mb-8">
+            <SuperhostBadge inverse />
+          </div>
           <div className="flex flex-wrap gap-3">
             {properties.map((p) => (
               <Link
@@ -263,9 +267,12 @@ export default function HomePage() {
         <h2 className="font-serif text-4xl text-ocean-950 mb-3 text-center">
           What our guests say
         </h2>
-        <p className="text-ocean-600/70 text-center mb-12">
-          4.83 ★ on Airbnb across 120+ stays
-        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+          <p className="text-ocean-600/70">
+            4.83 ★ on Airbnb across 120+ stays
+          </p>
+          <SuperhostBadge />
+        </div>
         <ReviewsCarousel reviews={homepageReviews} showProperty />
       </section>
 

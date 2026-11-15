@@ -7,6 +7,7 @@ import BookingCalendar from "@/components/BookingCalendar";
 import PhotoGrid from "@/components/PhotoGrid";
 import PropertySeoSections from "@/components/PropertySeoSections";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
+import SuperhostBadge from "@/components/SuperhostBadge";
 import { harwichReviews } from "@/lib/reviews";
 import { absoluteUrl, getProperty, propertyJsonLd } from "@/lib/site";
 import { propertySeoContent } from "@/lib/seo-content";
@@ -64,6 +65,9 @@ export default function HarwichPage() {
             <p className="font-serif italic text-xl text-sand-500 mb-6">
               Historic quayside building
             </p>
+            <div className="mb-6">
+              <SuperhostBadge />
+            </div>
             <p className="text-ocean-800/70 leading-relaxed mb-4">
               Stay in this beautifully appointed 2-bedroom apartment in the
               listed Quayside Court — built in 1864 as a Railway Hotel,

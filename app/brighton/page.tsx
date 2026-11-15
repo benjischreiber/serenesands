@@ -7,6 +7,7 @@ import BookingCalendar from "@/components/BookingCalendar";
 import PhotoGrid from "@/components/PhotoGrid";
 import PropertySeoSections from "@/components/PropertySeoSections";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
+import SuperhostBadge from "@/components/SuperhostBadge";
 import { brightonReviews } from "@/lib/reviews";
 import { absoluteUrl, getProperty, propertyJsonLd } from "@/lib/site";
 import { propertySeoContent } from "@/lib/seo-content";
@@ -64,6 +65,9 @@ export default function BrightonPage() {
             <p className="font-serif italic text-xl text-sand-500 mb-6">
               England&apos;s most happening city
             </p>
+            <div className="mb-6">
+              <SuperhostBadge />
+            </div>
             <p className="text-ocean-800/70 leading-relaxed mb-4">
               Experience the buzz of life in Brighton — one of England&apos;s
               most dynamic and varied cities. A fabulous 2-bedroom ground floor

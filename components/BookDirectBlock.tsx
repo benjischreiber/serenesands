@@ -30,7 +30,8 @@ export default function BookDirectBlock({
           </h2>
           <p className="text-ocean-800/75 leading-relaxed max-w-2xl">
             Book direct for our best available rates, direct contact with the
-            owner, and no third-party platform fees.
+            owner, and no third-party platform fees. You&apos;ll be booking
+            with the same Airbnb Superhosts — just directly.
           </p>
         </div>
         {links.length > 0 && (
